@@ -1,0 +1,935 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PyHydroGeophysX.inversion.em1d &#8212; PyHydroGeophysX Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=e259d695"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/PyHydroGeophysX/inversion/em1d';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://geohang.github.io/PyHydroGeophysX/_modules/PyHydroGeophysX/inversion/em1d.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt="PyHydroGeophysX Documentation - Home"/>
+    <img src="../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="PyHydroGeophysX Documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials/Workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../agents/index.html">
+    Agents + Web App
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/geohang/PyHydroGeophysX" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://geohang.github.io/environmental-geophysics/" title="Environmental Geophysics Course" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-graduation-cap fa-lg" aria-hidden="true"></i><span class="visually-hidden">Environmental Geophysics Course</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Quickstart
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials/Workflows
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../auto_examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../agents/index.html">
+    Agents + Web App
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/geohang/PyHydroGeophysX" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://geohang.github.io/environmental-geophysics/" title="Environmental Geophysics Course" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-graduation-cap fa-lg" aria-hidden="true"></i><span class="visually-hidden">Environmental Geophysics Course</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../../PyHydroGeophysX.html" class="nav-link">PyHydroGeophysX</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">PyHydroGeophysX.inversion.em1d</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for PyHydroGeophysX.inversion.em1d</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Occam-style 1D FDEM/TDEM inversion helpers.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX._internal.optional_dependencies</span><span class="w"> </span><span class="kn">import</span> <span class="n">BackendUnavailable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX._internal.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">noop</span> <span class="k">as</span> <span class="n">_noop</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX.forward.em1d</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">_fdem_config</span><span class="p">,</span>
+    <span class="n">_tdem_config</span><span class="p">,</span>
+    <span class="n">model_depth_profile</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">LogFn</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+
+<span class="n">DEFAULT_INVERSION</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;n_layers&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;min_thickness&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;max_thickness&quot;</span><span class="p">:</span> <span class="mf">40.0</span><span class="p">,</span>
+    <span class="s2">&quot;starting_resistivity&quot;</span><span class="p">:</span> <span class="mf">100.0</span><span class="p">,</span> <span class="s2">&quot;max_iterations&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s2">&quot;rel_error&quot;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span> <span class="s2">&quot;noise_floor&quot;</span><span class="p">:</span> <span class="mf">1e-14</span><span class="p">,</span> <span class="s2">&quot;smoothness&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="s2">&quot;lateral_smoothness&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;lci_passes&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="c1"># Line inversion. ``lci_mode`` picks how neighbouring soundings are tied</span>
+    <span class="c1"># together: &quot;simultaneous&quot; solves the line as one system, &quot;sequential&quot; runs</span>
+    <span class="c1"># the older block-coordinate passes, &quot;off&quot; inverts each sounding alone. The</span>
+    <span class="c1"># mode only takes effect when ``lateral_smoothness`` is positive.</span>
+    <span class="s2">&quot;lci_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;simultaneous&quot;</span><span class="p">,</span> <span class="s2">&quot;reference_distance&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+    <span class="s2">&quot;lateral_weight_scale&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;auto_lambda&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;target_chi2&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;chi2_tolerance&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;max_lambda_trials&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">&quot;convergence_tolerance&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s2">&quot;min_iterations&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_layer_thicknesses</span><span class="p">(</span><span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">min_thickness</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">max_thickness</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">n_layers</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_layers</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">n_layers</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">min_thickness</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">min_thickness</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_thickness</span><span class="p">),</span> <span class="n">n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_inversion_layer_thicknesses</span><span class="p">(</span><span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="n">n_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;n_layers&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">explicit</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;layer_thicknesses&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">explicit</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">n_layers</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">explicit</span><span class="p">))</span>
+        <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">explicit</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="n">explicit</span>
+    <span class="k">return</span> <span class="n">_layer_thicknesses</span><span class="p">(</span>
+        <span class="n">n_layers</span><span class="p">,</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;min_thickness&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_thickness&quot;</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">)),</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_tdem_uncertainty</span><span class="p">(</span><span class="n">observed</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                      <span class="n">rel</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">floor</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Per-gate uncertainty, preferring the stack error the instrument recorded.</span>
+
+<span class="sd">    ``relative_std`` is used gate by gate where it is present and positive, and</span>
+<span class="sd">    ``rel`` fills the rest, so a partially populated column is not thrown away.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_rel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;relative_std&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">data_rel</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">observed</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+        <span class="n">data_rel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">data_rel</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data_rel</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">data_rel</span><span class="p">,</span> <span class="n">rel</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data_rel</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">observed</span><span class="p">)</span> <span class="o">+</span> <span class="n">floor</span>
+    <span class="k">return</span> <span class="n">rel</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">observed</span><span class="p">)</span> <span class="o">+</span> <span class="n">floor</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_occam_1d</span><span class="p">(</span><span class="n">forward_vec</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">dobs_vec</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+              <span class="n">unc_vec</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">log</span><span class="p">:</span> <span class="n">LogFn</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Smooth fixed-layer fit with optional LCI neighbor regularization.&quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">least_squares</span>
+    <span class="n">lam</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;smoothness&quot;</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+    <span class="n">start_res</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;starting_resistivity&quot;</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
+    <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span>  <span class="c1"># log10 resistivity bounds (1 .. 1e5 ohm-m)</span>
+    <span class="n">start_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;starting_model&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">start_model</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">n_layers</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">start_model</span><span class="p">)):</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">start_model</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">)),</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x0</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">start_res</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)),</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_layers</span><span class="p">)</span>
+    <span class="n">lateral_model</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lateral_reference&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">lateral_weight</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lateral_weight&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">lateral_model</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">n_layers</span>
+        <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">lateral_model</span><span class="p">))</span>
+        <span class="ow">and</span> <span class="n">lateral_weight</span> <span class="o">&gt;</span> <span class="mf">0.0</span>
+    <span class="p">):</span>
+        <span class="n">lateral_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">lateral_model</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1e5</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">lateral_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">unc_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">unc_vec</span><span class="p">,</span> <span class="mf">1e-30</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">convergence</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">residual</span><span class="p">(</span><span class="n">logres</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">logres</span><span class="p">)</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="n">data_res</span> <span class="o">=</span> <span class="p">(</span><span class="n">pred</span> <span class="o">-</span> <span class="n">dobs_vec</span><span class="p">)</span> <span class="o">/</span> <span class="n">unc_vec</span>
+        <span class="n">smooth</span> <span class="o">=</span> <span class="n">lam</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">logres</span><span class="p">)</span>
+        <span class="n">lateral</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">lateral_weight</span> <span class="o">*</span> <span class="p">(</span><span class="n">logres</span> <span class="o">-</span> <span class="n">lateral_log</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">lateral_log</span><span class="o">.</span><span class="n">size</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">data_res</span><span class="p">,</span> <span class="n">smooth</span><span class="p">,</span> <span class="n">lateral</span><span class="p">])</span>
+
+    <span class="c1"># SciPy&#39;s ``max_nfev`` is the number of outer residual evaluations. Numerical</span>
+    <span class="c1"># Jacobian probes are additional calls, so multiplying by ``n_layers`` here</span>
+    <span class="c1"># makes a 20-layer line inversion unnecessarily hundreds of evaluations long.</span>
+    <span class="n">max_nfev</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_iterations&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)))</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_iteration</span><span class="p">(</span><span class="n">intermediate</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Record the data-only chi-square from SciPy&#39;s outer optimizer.&quot;&quot;&quot;</span>
+        <span class="n">fun</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">intermediate</span><span class="p">,</span> <span class="s2">&quot;fun&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fun</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">intermediate</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">intermediate</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+            <span class="n">fun</span> <span class="o">=</span> <span class="n">residual</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">data_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[:</span><span class="n">dobs_vec</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">convergence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_res</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)))</span>
+
+    <span class="n">kwargs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;max_nfev&quot;</span><span class="p">:</span> <span class="n">max_nfev</span><span class="p">,</span> <span class="s2">&quot;xtol&quot;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="s2">&quot;ftol&quot;</span><span class="p">:</span> <span class="mf">1e-8</span><span class="p">}</span>
+    <span class="c1"># SciPy &lt; 1.16 has no callback argument. Keep those supported environments</span>
+    <span class="c1"># working; their quality page falls back to the final chi-square chart.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+        <span class="k">if</span> <span class="s2">&quot;callback&quot;</span> <span class="ow">in</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">least_squares</span><span class="p">)</span><span class="o">.</span><span class="n">parameters</span><span class="p">:</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;callback&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">on_iteration</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># pragma: no cover - defensive compatibility path</span>
+        <span class="k">pass</span>
+    <span class="n">sol</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residual</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;trf&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">data_res</span> <span class="o">=</span> <span class="n">residual</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">)[:</span> <span class="n">dobs_vec</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+    <span class="n">chi2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_res</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">convergence</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">convergence</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">chi2</span><span class="p">):</span>
+        <span class="n">convergence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chi2</span><span class="p">)</span>
+    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  inversion done: </span><span class="si">{</span><span class="n">sol</span><span class="o">.</span><span class="n">nfev</span><span class="si">}</span><span class="s2"> forward evals, chi2=</span><span class="si">{</span><span class="n">chi2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">chi2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">nfev</span><span class="p">),</span> <span class="n">convergence</span>
+
+
+<div class="viewcode-block" id="tdem_moment_blocks">
+<a class="viewcode-back" href="../../../api/PyHydroGeophysX.inversion.html#PyHydroGeophysX.em1d.tdem_moment_blocks">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tdem_moment_blocks</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">geom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                       <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">thick</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;One forward block per usable moment at a TDEM station.</span>
+
+<span class="sd">    Stations carrying separate ``LM`` and ``HM`` gate sets produce one block</span>
+<span class="sd">    each; a plain single-response station produces one block named ``TDEM``.</span>
+<span class="sd">    Returning the same shape for both is what lets the per-sounding inversion</span>
+<span class="sd">    and the coupled line inversion share this assembly instead of each writing</span>
+<span class="sd">    its own copy of the uncertainty and gate-selection rules.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX.forward.tdem_forward</span><span class="w"> </span><span class="kn">import</span> <span class="n">TDEMForwardModeling</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="k">raise</span> <span class="n">BackendUnavailable</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+
+    <span class="n">scale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_scale&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">rel</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rel_error&quot;</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+    <span class="n">floor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noise_floor&quot;</span><span class="p">,</span> <span class="mf">1e-18</span><span class="p">))</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;response_sign&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">moments</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;moments&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="p">([(</span><span class="n">name</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">moments</span><span class="p">[</span><span class="n">name</span><span class="p">]))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;LM&quot;</span><span class="p">,</span> <span class="s2">&quot;HM&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">moments</span><span class="p">]</span>
+             <span class="ow">or</span> <span class="p">[(</span><span class="s2">&quot;TDEM&quot;</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="p">))])</span>
+
+    <span class="n">blocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;times&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;response&quot;</span><span class="p">,</span> <span class="p">[]),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">*</span> <span class="n">scale</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">times</span><span class="o">.</span><span class="n">size</span> <span class="ow">or</span> <span class="n">observed</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="c1"># SimPEG constructs a spline over receiver times and needs a denser time</span>
+        <span class="c1"># vector than some heavily gated TEMcompany stations provide. Add forward-</span>
+        <span class="c1"># only support times, then select the original gates for the residual.</span>
+        <span class="c1"># No observed values are interpolated or invented.</span>
+        <span class="n">model_times</span> <span class="o">=</span> <span class="n">times</span>
+        <span class="k">if</span> <span class="n">times</span><span class="o">.</span><span class="n">size</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+            <span class="n">lower</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">times</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1e-9</span><span class="p">)</span>
+            <span class="n">upper</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">times</span><span class="p">))</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">lower</span> <span class="o">*</span> <span class="mf">4.0</span><span class="p">)</span>
+            <span class="n">model_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+                <span class="n">times</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">geomspace</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+            <span class="p">]))</span>
+        <span class="n">channel_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">model_times</span> <span class="o">-</span> <span class="n">value</span><span class="p">)))</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">times</span>
+        <span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+            <span class="s2">&quot;times&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span>
+            <span class="s2">&quot;model_times&quot;</span><span class="p">:</span> <span class="n">model_times</span><span class="p">,</span>
+            <span class="s2">&quot;channel_indices&quot;</span><span class="p">:</span> <span class="n">channel_indices</span><span class="p">,</span>
+            <span class="s2">&quot;observed&quot;</span><span class="p">:</span> <span class="n">observed</span><span class="p">,</span>
+            <span class="s2">&quot;uncertainty&quot;</span><span class="p">:</span> <span class="n">_tdem_uncertainty</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">rel</span><span class="p">,</span> <span class="n">floor</span><span class="p">),</span>
+            <span class="s2">&quot;sign&quot;</span><span class="p">:</span> <span class="n">sign</span><span class="p">,</span>
+            <span class="s2">&quot;modeler&quot;</span><span class="p">:</span> <span class="n">TDEMForwardModeling</span><span class="p">(</span>
+                <span class="n">thicknesses</span><span class="o">=</span><span class="n">thick</span><span class="p">,</span> <span class="n">survey_config</span><span class="o">=</span><span class="n">_tdem_config</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">model_times</span><span class="p">)),</span>
+        <span class="p">})</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">blocks</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The joint TDEM sounding has no usable LM or HM gates.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">blocks</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_moment_forward</span><span class="p">(</span><span class="n">blocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Predicted response for the gates that were actually measured.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;sign&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+                <span class="n">item</span><span class="p">[</span><span class="s2">&quot;modeler&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[</span>
+                    <span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;model_times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">][</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;channel_indices&quot;</span><span class="p">]]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span>
+        <span class="p">])</span>
+    <span class="k">return</span> <span class="n">forward_vec</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_moment_jacobian</span><span class="p">(</span><span class="n">blocks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analytic d(response)/d(sigma), row-selected to match ``_moment_forward``.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span><span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span>
+            <span class="n">item</span><span class="p">[</span><span class="s2">&quot;sign&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+                <span class="n">item</span><span class="p">[</span><span class="s2">&quot;modeler&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getJ</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span>
+                    <span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;model_times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">][</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;channel_indices&quot;</span><span class="p">],</span> <span class="p">:]</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span>
+        <span class="p">])</span>
+    <span class="k">return</span> <span class="n">jacobian</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fdem_pieces</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">geom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                 <span class="n">thick</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Observed vector, uncertainty, forward, and Jacobian for one FDEM sounding.</span>
+
+<span class="sd">    Data are ordered ``[real over frequency, imag over frequency]``, matching</span>
+<span class="sd">    :func:`fdem_invert`. SimPEG&#39;s ``dpred`` interleaves the two, so the same row</span>
+<span class="sd">    selection is applied to the response and to the Jacobian; that shared</span>
+<span class="sd">    selection is what keeps the two consistent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX.forward.fdem_forward</span><span class="w"> </span><span class="kn">import</span> <span class="n">FDEMForwardModeling</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="k">raise</span> <span class="n">BackendUnavailable</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;frequencies&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_scale&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">obs_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;real&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">obs_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;imag&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">rel</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rel_error&quot;</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+    <span class="n">floor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noise_floor&quot;</span><span class="p">,</span> <span class="mf">1e-14</span><span class="p">))</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">amp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">obs_r</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">obs_i</span><span class="p">)</span>
+    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">obs_r</span><span class="p">,</span> <span class="n">obs_i</span><span class="p">])</span>
+    <span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">rel</span> <span class="o">*</span> <span class="n">amp</span> <span class="o">+</span> <span class="n">floor</span><span class="p">,</span> <span class="n">rel</span> <span class="o">*</span> <span class="n">amp</span> <span class="o">+</span> <span class="n">floor</span><span class="p">])</span>
+    <span class="n">modeler</span> <span class="o">=</span> <span class="n">FDEMForwardModeling</span><span class="p">(</span>
+        <span class="n">thicknesses</span><span class="o">=</span><span class="n">thick</span><span class="p">,</span> <span class="n">survey_config</span><span class="o">=</span><span class="n">_fdem_config</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">freqs</span><span class="p">))</span>
+    <span class="n">nf</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">freqs</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nf</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nf</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">modeler</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">sigma</span><span class="p">))</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">resp</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">nf</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplexobj</span><span class="p">(</span><span class="n">resp</span><span class="p">):</span>
+            <span class="n">resp</span> <span class="o">=</span> <span class="n">resp</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">resp</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">resp</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[:</span><span class="n">nf</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">resp</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">resp</span><span class="o">.</span><span class="n">imag</span><span class="p">])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span><span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span>
+            <span class="n">modeler</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">getJ</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)[</span><span class="n">rows</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="k">return</span> <span class="n">observed</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">forward_vec</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">modeler</span><span class="p">,</span> <span class="n">freqs</span>
+
+
+<div class="viewcode-block" id="build_sounding_block">
+<a class="viewcode-back" href="../../../api/PyHydroGeophysX.inversion.html#PyHydroGeophysX.em1d.build_sounding_block">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">build_sounding_block</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">geom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                         <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;TDEM&quot;</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                         <span class="n">position</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Package one sounding for the coupled line inversion.</span>
+
+<span class="sd">    The observed vector, uncertainty, and forward operator are built by the</span>
+<span class="sd">    same code the per-sounding inversion uses, so a station fits the same data</span>
+<span class="sd">    whether it is solved alone or as part of a line. The Jacobian comes from</span>
+<span class="sd">    SimPEG&#39;s analytic sensitivity rather than from finite differences.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX.inversion.em1d_lci</span><span class="w"> </span><span class="kn">import</span> <span class="n">SoundingBlock</span>
+
+    <span class="n">thick</span> <span class="o">=</span> <span class="n">_inversion_layer_thicknesses</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">method</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;FDEM&quot;</span><span class="p">:</span>
+        <span class="n">observed</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">forward_vec</span><span class="p">,</span> <span class="n">jacobian</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_fdem_pieces</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">thick</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">blocks</span> <span class="o">=</span> <span class="n">tdem_moment_blocks</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">thick</span><span class="p">)</span>
+        <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;observed&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">])</span>
+        <span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">])</span>
+        <span class="n">forward_vec</span> <span class="o">=</span> <span class="n">_moment_forward</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span>
+        <span class="n">jacobian</span> <span class="o">=</span> <span class="n">_moment_jacobian</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">SoundingBlock</span><span class="p">(</span>
+        <span class="n">forward</span><span class="o">=</span><span class="n">forward_vec</span><span class="p">,</span> <span class="n">jacobian</span><span class="o">=</span><span class="n">jacobian</span><span class="p">,</span> <span class="n">dobs</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span>
+        <span class="n">uncertainty</span><span class="o">=</span><span class="n">uncertainty</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">position</span><span class="p">),</span> <span class="n">line</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">),</span>
+        <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="fdem_invert">
+<a class="viewcode-back" href="../../../api/PyHydroGeophysX.workflows.html#PyHydroGeophysX.em1d.fdem_invert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fdem_invert</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">geom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                <span class="n">log</span><span class="p">:</span> <span class="n">LogFn</span> <span class="o">=</span> <span class="n">_noop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Invert an FDEM sounding for a layered resistivity model (Occam 1D).&quot;&quot;&quot;</span>
+    <span class="n">n_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;n_layers&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">thick</span> <span class="o">=</span> <span class="n">_inversion_layer_thicknesses</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+    <span class="n">dobs_vec</span><span class="p">,</span> <span class="n">unc_vec</span><span class="p">,</span> <span class="n">forward_vec</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">freqs</span> <span class="o">=</span> <span class="n">_fdem_pieces</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">thick</span><span class="p">)</span>
+    <span class="n">obs_r</span><span class="p">,</span> <span class="n">obs_i</span> <span class="o">=</span> <span class="n">dobs_vec</span><span class="p">[:</span> <span class="n">freqs</span><span class="o">.</span><span class="n">size</span><span class="p">],</span> <span class="n">dobs_vec</span><span class="p">[</span><span class="n">freqs</span><span class="o">.</span><span class="n">size</span><span class="p">:]</span>
+    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FDEM inversion: </span><span class="si">{</span><span class="n">freqs</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> freqs, </span><span class="si">{</span><span class="n">n_layers</span><span class="si">}</span><span class="s2"> layers&quot;</span><span class="p">)</span>
+
+    <span class="n">res</span><span class="p">,</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">nfev</span><span class="p">,</span> <span class="n">convergence</span> <span class="o">=</span> <span class="n">_occam_1d</span><span class="p">(</span><span class="n">forward_vec</span><span class="p">,</span> <span class="n">dobs_vec</span><span class="p">,</span> <span class="n">unc_vec</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">pred_r</span><span class="p">,</span> <span class="n">pred_i</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[:</span> <span class="n">freqs</span><span class="o">.</span><span class="n">size</span><span class="p">],</span> <span class="n">pred</span><span class="p">[</span><span class="n">freqs</span><span class="o">.</span><span class="n">size</span><span class="p">:]</span>
+    <span class="n">depth</span><span class="p">,</span> <span class="n">res_step</span> <span class="o">=</span> <span class="n">model_depth_profile</span><span class="p">(</span><span class="n">thick</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;FDEM&quot;</span><span class="p">,</span> <span class="s2">&quot;frequencies&quot;</span><span class="p">:</span> <span class="n">freqs</span><span class="p">,</span>
+            <span class="s2">&quot;obs_real&quot;</span><span class="p">:</span> <span class="n">obs_r</span><span class="p">,</span> <span class="s2">&quot;obs_imag&quot;</span><span class="p">:</span> <span class="n">obs_i</span><span class="p">,</span>
+            <span class="s2">&quot;pred_real&quot;</span><span class="p">:</span> <span class="n">pred_r</span><span class="p">,</span> <span class="s2">&quot;pred_imag&quot;</span><span class="p">:</span> <span class="n">pred_i</span><span class="p">,</span>
+            <span class="s2">&quot;thickness&quot;</span><span class="p">:</span> <span class="n">thick</span><span class="p">,</span> <span class="s2">&quot;resistivity&quot;</span><span class="p">:</span> <span class="n">res</span><span class="p">,</span> <span class="s2">&quot;conductivity&quot;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span>
+            <span class="s2">&quot;depth&quot;</span><span class="p">:</span> <span class="n">depth</span><span class="p">,</span> <span class="s2">&quot;resistivity_step&quot;</span><span class="p">:</span> <span class="n">res_step</span><span class="p">,</span> <span class="s2">&quot;chi2&quot;</span><span class="p">:</span> <span class="n">chi2</span><span class="p">,</span>
+            <span class="s2">&quot;n_data&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dobs_vec</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="s2">&quot;nfev&quot;</span><span class="p">:</span> <span class="n">nfev</span><span class="p">,</span> <span class="s2">&quot;n_layers&quot;</span><span class="p">:</span> <span class="n">n_layers</span><span class="p">,</span>
+            <span class="s2">&quot;convergence&quot;</span><span class="p">:</span> <span class="n">convergence</span><span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="tdem_invert">
+<a class="viewcode-back" href="../../../api/PyHydroGeophysX.workflows.html#PyHydroGeophysX.em1d.tdem_invert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tdem_invert</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">geom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+                <span class="n">log</span><span class="p">:</span> <span class="n">LogFn</span> <span class="o">=</span> <span class="n">_noop</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Invert a TDEM sounding for a layered resistivity model (Occam 1D).&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX.forward.tdem_forward</span><span class="w"> </span><span class="kn">import</span> <span class="n">TDEMForwardModeling</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="k">raise</span> <span class="n">BackendUnavailable</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;data_scale&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">dobs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">rel</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rel_error&quot;</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">));</span> <span class="n">floor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noise_floor&quot;</span><span class="p">,</span> <span class="mf">1e-18</span><span class="p">))</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">unc</span> <span class="o">=</span> <span class="n">_tdem_uncertainty</span><span class="p">(</span><span class="n">dobs</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">rel</span><span class="p">,</span> <span class="n">floor</span><span class="p">)</span>
+    <span class="n">n_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;n_layers&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">thick</span> <span class="o">=</span> <span class="n">_inversion_layer_thicknesses</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+    <span class="n">modeler</span> <span class="o">=</span> <span class="n">TDEMForwardModeling</span><span class="p">(</span><span class="n">thicknesses</span><span class="o">=</span><span class="n">thick</span><span class="p">,</span> <span class="n">survey_config</span><span class="o">=</span><span class="n">_tdem_config</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">times</span><span class="p">))</span>
+    <span class="n">log</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;TDEM inversion: </span><span class="si">{</span><span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> times, </span><span class="si">{</span><span class="n">n_layers</span><span class="si">}</span><span class="s2"> layers&quot;</span><span class="p">)</span>
+    <span class="n">sign</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;response_sign&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sign</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">modeler</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()[:</span> <span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">]</span>
+
+    <span class="n">res</span><span class="p">,</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">nfev</span><span class="p">,</span> <span class="n">convergence</span> <span class="o">=</span> <span class="n">_occam_1d</span><span class="p">(</span><span class="n">forward_vec</span><span class="p">,</span> <span class="n">dobs</span><span class="p">,</span> <span class="n">unc</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">depth</span><span class="p">,</span> <span class="n">res_step</span> <span class="o">=</span> <span class="n">model_depth_profile</span><span class="p">(</span><span class="n">thick</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;TDEM&quot;</span><span class="p">,</span> <span class="s2">&quot;times&quot;</span><span class="p">:</span> <span class="n">times</span><span class="p">,</span> <span class="s2">&quot;obs&quot;</span><span class="p">:</span> <span class="n">dobs</span><span class="p">,</span> <span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">pred</span><span class="p">,</span>
+            <span class="s2">&quot;thickness&quot;</span><span class="p">:</span> <span class="n">thick</span><span class="p">,</span> <span class="s2">&quot;resistivity&quot;</span><span class="p">:</span> <span class="n">res</span><span class="p">,</span> <span class="s2">&quot;conductivity&quot;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span>
+            <span class="s2">&quot;depth&quot;</span><span class="p">:</span> <span class="n">depth</span><span class="p">,</span> <span class="s2">&quot;resistivity_step&quot;</span><span class="p">:</span> <span class="n">res_step</span><span class="p">,</span> <span class="s2">&quot;chi2&quot;</span><span class="p">:</span> <span class="n">chi2</span><span class="p">,</span>
+            <span class="s2">&quot;n_data&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">dobs</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="s2">&quot;nfev&quot;</span><span class="p">:</span> <span class="n">nfev</span><span class="p">,</span> <span class="s2">&quot;n_layers&quot;</span><span class="p">:</span> <span class="n">n_layers</span><span class="p">,</span>
+            <span class="s2">&quot;convergence&quot;</span><span class="p">:</span> <span class="n">convergence</span><span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="tdem_joint_invert">
+<a class="viewcode-back" href="../../../api/PyHydroGeophysX.workflows.html#PyHydroGeophysX.em1d.tdem_joint_invert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tdem_joint_invert</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">geom</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">inv</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+    <span class="n">log</span><span class="p">:</span> <span class="n">LogFn</span> <span class="o">=</span> <span class="n">_noop</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Invert all available LM/HM gates at one station for one shared 1D model.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">PyHydroGeophysX.forward.tdem_forward</span><span class="w"> </span><span class="kn">import</span> <span class="n">TDEMForwardModeling</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>  <span class="c1"># noqa: BLE001</span>
+        <span class="k">raise</span> <span class="n">BackendUnavailable</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">exc</span><span class="p">))</span>
+    <span class="n">moments</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;moments&quot;</span><span class="p">,</span> <span class="p">{}))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">moments</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tdem_invert</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="n">log</span><span class="p">)</span>
+
+    <span class="n">n_layers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">inv</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;n_layers&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">thick</span> <span class="o">=</span> <span class="n">_inversion_layer_thicknesses</span><span class="p">(</span><span class="n">inv</span><span class="p">)</span>
+    <span class="n">blocks</span> <span class="o">=</span> <span class="n">tdem_moment_blocks</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">geom</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">thick</span><span class="p">)</span>
+
+    <span class="n">observed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;observed&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">])</span>
+    <span class="n">uncertainty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;uncertainty&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">])</span>
+    <span class="n">log</span><span class="p">(</span>
+        <span class="s2">&quot;Joint LM+HM inversion: &quot;</span>
+        <span class="o">+</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">item</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">)</span>
+        <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot; gates, </span><span class="si">{</span><span class="n">n_layers</span><span class="si">}</span><span class="s2"> shared layers&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">forward_vec</span> <span class="o">=</span> <span class="n">_moment_forward</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span>
+    <span class="n">res</span><span class="p">,</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">nfev</span><span class="p">,</span> <span class="n">convergence</span> <span class="o">=</span> <span class="n">_occam_1d</span><span class="p">(</span>
+        <span class="n">forward_vec</span><span class="p">,</span> <span class="n">observed</span><span class="p">,</span> <span class="n">uncertainty</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">inv</span><span class="p">,</span> <span class="n">log</span><span class="p">)</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">forward_vec</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+    <span class="n">predictions</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">predictions</span><span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;times&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;times&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;obs&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;observed&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">predicted</span><span class="p">[</span><span class="n">offset</span><span class="p">:</span><span class="n">offset</span> <span class="o">+</span> <span class="n">count</span><span class="p">],</span>
+        <span class="p">}</span>
+        <span class="n">offset</span> <span class="o">+=</span> <span class="n">count</span>
+    <span class="n">depth</span><span class="p">,</span> <span class="n">res_step</span> <span class="o">=</span> <span class="n">model_depth_profile</span><span class="p">(</span><span class="n">thick</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;TDEM&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;joint_moments&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;moments&quot;</span><span class="p">:</span> <span class="n">predictions</span><span class="p">,</span>
+        <span class="s2">&quot;obs&quot;</span><span class="p">:</span> <span class="n">observed</span><span class="p">,</span>
+        <span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">predicted</span><span class="p">,</span>
+        <span class="s2">&quot;thickness&quot;</span><span class="p">:</span> <span class="n">thick</span><span class="p">,</span>
+        <span class="s2">&quot;resistivity&quot;</span><span class="p">:</span> <span class="n">res</span><span class="p">,</span>
+        <span class="s2">&quot;conductivity&quot;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span>
+        <span class="s2">&quot;depth&quot;</span><span class="p">:</span> <span class="n">depth</span><span class="p">,</span>
+        <span class="s2">&quot;resistivity_step&quot;</span><span class="p">:</span> <span class="n">res_step</span><span class="p">,</span>
+        <span class="s2">&quot;chi2&quot;</span><span class="p">:</span> <span class="n">chi2</span><span class="p">,</span>
+        <span class="s2">&quot;n_data&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">observed</span><span class="o">.</span><span class="n">size</span><span class="p">),</span>
+        <span class="s2">&quot;nfev&quot;</span><span class="p">:</span> <span class="n">nfev</span><span class="p">,</span>
+        <span class="s2">&quot;n_layers&quot;</span><span class="p">:</span> <span class="n">n_layers</span><span class="p">,</span>
+        <span class="s2">&quot;convergence&quot;</span><span class="p">:</span> <span class="n">convergence</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;DEFAULT_INVERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;build_sounding_block&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fdem_invert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tdem_invert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tdem_joint_invert&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tdem_moment_blocks&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Hang Chen.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
